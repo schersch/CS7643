@@ -11,7 +11,7 @@ This repo is based on the BEiT-3 repo which can be found [here](https://github.c
 alias=`whoami | cut -d'.' -f2`; docker run -it --rm --runtime=nvidia --ipc=host --privileged -v /home/${alias}:/home/${alias} pytorch/pytorch:1.8.1-cuda11.1-cudnn8-devel bash
 apt-get update
 apt-get install -y libgl1-mesa-glx
-apt-get install -y libglib 2.0-0
+apt-get install -y libglib2.0-0
 pip install -r requirements.txt --use-feature=2020-resolver
 ```
 
