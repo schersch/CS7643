@@ -1,0 +1,1 @@
+{"base_single_unaug": {"acc": "0.6340", "auroc": "0.6788"}, "base_single_aug": {"acc": "0.7097", "auroc": "0.7611"}, "large_single_unaug": {"acc": "0.7243", "auroc": "0.8301"}, "large_single_aug": {"acc": "0.7493", "auroc": "0.8373"}, "large_ensemble_unaug": {"acc": "0.7627", "auroc": "0.8512"}, "large_ensemble_aug": {"acc": "0.7603", "auroc": "0.8502"}}
