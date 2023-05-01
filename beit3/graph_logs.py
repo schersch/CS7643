@@ -29,7 +29,7 @@ def graph_auroc_results():
     plt.xlim(left=0)
     plt.legend()
     plt.xlabel("Epoch")
-    plt.ylabel("Loss")
+    plt.ylabel("AUROC")
     plt.savefig(f"graphs/beit3_auroc_vs_epoch.png")
     plt.close()
 
