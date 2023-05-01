@@ -7,23 +7,45 @@ from sklearn.metrics import roc_auc_score
 # ---------------------------------
 
 ensembles = {
-    "base_single_unaug": [{"size": "base", "seed": 42, "data": "unaug"}],
-    "base_single_aug": [{"size": "base", "seed": 42, "data": "aug"}],
-    "large_single_unaug": [{"size": "large", "seed": 51, "data": "unaug"}],
-    "large_single_aug": [{"size": "large", "seed": 51, "data": "aug"}],
+    "base_single_unaug": [{"size": "base", "seed": 42, "data": "unaug", "lr": ""}],
+    "base_single_aug": [{"size": "base", "seed": 42, "data": "aug", "lr": ""}],
+    "large_single_unaug": [{"size": "large", "seed": 51, "data": "unaug", "lr": ""}],
+    "large_single_unaug_best": [{"size": "large", "seed": 51, "data": "unaug", "lr": "lr_"}],
+    "large_single_aug": [{"size": "large", "seed": 51, "data": "aug", "lr": ""}],
     "large_ensemble_unaug": [
-        {"size": "large", "seed": 47, "data": "unaug"},
-        {"size": "large", "seed": 48, "data": "unaug"},
-        {"size": "large", "seed": 49, "data": "unaug"},
-        {"size": "large", "seed": 50, "data": "unaug"},
-        {"size": "large", "seed": 51, "data": "unaug"},
+        {"size": "large", "seed": 47, "data": "unaug", "lr": ""},
+        {"size": "large", "seed": 48, "data": "unaug", "lr": ""},
+        {"size": "large", "seed": 49, "data": "unaug", "lr": ""},
+        {"size": "large", "seed": 50, "data": "unaug", "lr": ""},
+        {"size": "large", "seed": 51, "data": "unaug", "lr": ""},
     ],
     "large_ensemble_aug": [
-        {"size": "large", "seed": 47, "data": "aug"},
-        {"size": "large", "seed": 48, "data": "aug"},
-        {"size": "large", "seed": 49, "data": "aug"},
-        {"size": "large", "seed": 50, "data": "aug"},
-        {"size": "large", "seed": 51, "data": "aug"},
+        {"size": "large", "seed": 47, "data": "aug", "lr": ""},
+        {"size": "large", "seed": 48, "data": "aug", "lr": ""},
+        {"size": "large", "seed": 49, "data": "aug", "lr": ""},
+        {"size": "large", "seed": 50, "data": "aug", "lr": ""},
+        {"size": "large", "seed": 51, "data": "aug", "lr": ""},
+    ],
+    "lr_9e-5": [{"size": "large", "seed": 53, "data": "unaug", "lr": ""}],
+    "lr_3e-5": [{"size": "large", "seed": 54, "data": "unaug", "lr": ""}],
+    "decay_0.1": [{"size": "large", "seed": 55, "data": "unaug", "lr": ""}],
+    "decay_0.3": [{"size": "large", "seed": 56, "data": "unaug", "lr": ""}],
+    "decay_0.4": [{"size": "large", "seed": 57, "data": "unaug", "lr": ""}],
+    "mmt_0.7": [{"size": "large", "seed": 58, "data": "unaug", "lr": ""}],
+    "mmt_0.5": [{"size": "large", "seed": 59, "data": "unaug", "lr": ""}],
+    "large_ensemble_unaug_lr": [
+        {"size": "large", "seed": 47, "data": "unaug", "lr": "lr_"},
+        {"size": "large", "seed": 48, "data": "unaug", "lr": "lr_"},
+        {"size": "large", "seed": 49, "data": "unaug", "lr": "lr_"},
+        {"size": "large", "seed": 50, "data": "unaug", "lr": "lr_"},
+        {"size": "large", "seed": 51, "data": "unaug", "lr": "lr_"},
+    ],
+    "large_ensemble_aug_lr": [
+        {"size": "large", "seed": 47, "data": "aug", "lr": "lr_"},
+        {"size": "large", "seed": 48, "data": "aug", "lr": "lr_"},
+        {"size": "large", "seed": 49, "data": "aug", "lr": "lr_"},
+        {"size": "large", "seed": 50, "data": "aug", "lr": "lr_"},
+        {"size": "large", "seed": 51, "data": "aug", "lr": "lr_"},
     ],
 }
 
@@ -34,7 +56,8 @@ def eval_ensemble(models):
         seed = model["seed"]
         size = model["size"]
         data = model["data"]
-        results_path = f"results/beit3_{seed}_{size}_{data}_preds.json"
+        lr = model["lr"]
+        results_path = f"results/beit3_{seed}_{size}_{data}_{lr}preds.json"
         with open(results_path) as f:
             results.append(json.load(f))
     avg_probs = np.mean([np.array(result["probs"]) for result in results], axis=0)

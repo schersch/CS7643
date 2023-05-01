@@ -11,6 +11,10 @@
         "acc": "0.7243",
         "auroc": "0.8301"
     },
+    "large_single_unaug_best": {
+        "acc": "0.7470",
+        "auroc": "0.8489"
+    },
     "large_single_aug": {
         "acc": "0.7493",
         "auroc": "0.8373"
@@ -22,5 +26,41 @@
     "large_ensemble_aug": {
         "acc": "0.7603",
         "auroc": "0.8502"
+    },
+    "lr_9e-5": {
+        "acc": "0.7557",
+        "auroc": "0.8484"
+    },
+    "lr_3e-5": {
+        "acc": "0.7597",
+        "auroc": "0.8502"
+    },
+    "decay_0.1": {
+        "acc": "0.7503",
+        "auroc": "0.8319"
+    },
+    "decay_0.3": {
+        "acc": "0.7430",
+        "auroc": "0.8190"
+    },
+    "decay_0.4": {
+        "acc": "0.7483",
+        "auroc": "0.8228"
+    },
+    "mmt_0.7": {
+        "acc": "0.7493",
+        "auroc": "0.8372"
+    },
+    "mmt_0.5": {
+        "acc": "0.7473",
+        "auroc": "0.8226"
+    },
+    "large_ensemble_unaug_lr": {
+        "acc": "0.7643",
+        "auroc": "0.8555"
+    },
+    "large_ensemble_aug_lr": {
+        "acc": "0.7380",
+        "auroc": "0.8287"
     }
 }
